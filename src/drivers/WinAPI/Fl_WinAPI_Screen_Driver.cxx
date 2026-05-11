@@ -111,7 +111,8 @@ void Fl_WinAPI_Screen_Driver::init()
   // we do a run-time check for the required functions...
   HMODULE hMod = GetModuleHandle("USER32.DLL");
 
-  if (hMod && num_screens < 0) {
+  if (num_screens >= 0) return;
+  if (hMod) {
     // check that EnumDisplayMonitors is available
     fl_edm_func fl_edm = (fl_edm_func)GetProcAddress(hMod, "EnumDisplayMonitors");
 
