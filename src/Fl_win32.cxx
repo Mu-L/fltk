@@ -1997,7 +1997,7 @@ int Fl_WinAPI_Window_Driver::fake_X_wm(int &X, int &Y, int &bt, int &bx, int &by
   // Find screen that contains most of the window
   // FIXME: this ought to be the "work area" instead of the entire screen !
   int scr_x = 0, scr_y = 0, scr_w = 0, scr_h = 0;
-  int ns = Fl::screen_num(int(round(X / s)), int(round(Y / s)), int(W / s), int(H / s));
+  int ns = screen_num();
   ((Fl_WinAPI_Screen_Driver*)Fl::screen_driver())->screen_xywh_unscaled(scr_x, scr_y, scr_w, scr_h, ns);
   // Make border's lower right corner visible
   if (scr_x + scr_w < X + W)
